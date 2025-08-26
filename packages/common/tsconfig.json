@@ -1,3 +1,8 @@
 {
-  "extends": "@codecompose/typescript-config/library.json"
+  "extends": "@codecompose/typescript-config/library.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "dist"
+  },
+  "references": []
 }

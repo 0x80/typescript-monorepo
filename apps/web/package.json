@@ -9,7 +9,7 @@
     "check-circular": "madge --circular --extensions ts ./src --ts-config ./tsconfig.json",
     "dev": "next dev",
     "build": "next build",
-    "clean": "del-cli .next tsconfig.tsbuildinfo",
+    "clean": "del-cli .next",
     "start": "next start"
   },
   "dependencies": {

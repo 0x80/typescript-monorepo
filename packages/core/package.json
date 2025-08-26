@@ -12,7 +12,7 @@
     "check-circular": "madge --circular --extensions ts ./src --ts-config ./tsconfig.json",
     "test": "vitest",
     "build": "tsdown",
-    "clean": "del-cli dist tsconfig.tsbuildinfo",
+    "clean": "del-cli dist",
     "coverage": "vitest run --coverage "
   },
   "license": "MIT",

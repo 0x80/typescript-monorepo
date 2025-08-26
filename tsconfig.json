@@ -1,0 +1,10 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./packages/common" },
+    { "path": "./packages/core" },
+    { "path": "./services/api" },
+    { "path": "./services/fns" },
+    { "path": "./apps/web" }
+  ]
+}
