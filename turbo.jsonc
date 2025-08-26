@@ -23,22 +23,15 @@
       "inputs": ["$TURBO_DEFAULT$", ".env", ".env.demo-mono-ts", ".env.local"]
     },
     "test": {
-      "dependsOn": ["^build"],
       "outputs": [],
       "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
     },
     "coverage": {
-      "dependsOn": ["^build"],
       "outputs": ["coverage/**"],
       "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
     },
-    "check-types": {
-      "dependsOn": ["^build"]
-    },
+    "check-types": {},
     "check-circular": {},
-    "lint": {
-      "dependsOn": ["^build"]
-    },
     "clean": {
       "cache": false
     },

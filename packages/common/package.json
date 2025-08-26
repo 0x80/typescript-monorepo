@@ -14,11 +14,11 @@
   ],
   "scripts": {
     "check-types": "tsc --noEmit",
+    "check-biome": "biome check",
     "check-circular": "madge --circular --extensions ts ./src --ts-config ./tsconfig.json",
     "test": "vitest",
     "build": "bunchee --sourcemap --target es2022",
     "clean": "del-cli dist tsconfig.tsbuildinfo",
-    "lint": "biome check",
     "coverage": "vitest run --coverage"
   },
   "license": "MIT",

@@ -10,9 +10,9 @@
   "scripts": {
     "check-types": "tsc --noEmit",
     "check-circular": "madge --circular --extensions ts ./src --ts-config ./tsconfig.json",
+    "check-biome": "biome check",
     "build": "bunchee --sourcemap --runtime node --target es2022",
     "clean": "del-cli dist isolate tsconfig.tsbuildinfo",
-    "lint": "biome check",
     "deploy": "firebase deploy --project demo-mono-ts --only functions",
     "emulate": "firebase emulators:start --project demo-mono-ts --only functions"
   },

@@ -29,6 +29,8 @@
   },
   "scripts": {
     "check-types": "turbo check-types --continue",
+    "check-biome": "turbo check-biome --continue",
+    "check-biome-ci": "biome ci",
     "check-circular": "turbo check-circular --continue",
     "build": "turbo build",
     "build:fns": "turbo build --filter=@repo/fns",
@@ -37,12 +39,9 @@
     "dev": "turbo dev",
     "deploy": "firebase deploy",
     "watch": "turbo watch build --filter=@repo/core --filter=@repo/fns --filter=@repo/api",
-    "lint": "biome check",
-    "lint:fix": "biome check --write",
     "test": "turbo test -- --watch false",
-    "format": "biome format --write",
-    "check-format": "biome check",
     "emulate": "firebase emulators:start --project demo-mono-ts",
+    "format": "biome check --write",
     "db:get-indexes": "firebase firestore:indexes > firestore.indexes.json"
   },
   "devDependencies": {
