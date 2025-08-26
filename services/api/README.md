@@ -1,4 +1,15 @@
 # API
+## Build
+
+This package is built with tsdown. The entry point is `src/index.ts` and the output is written to `dist/` with `.d.ts` and source maps.
+
+Scripts:
+
+```
+pnpm build
+pnpm check-types
+```
+
 
 The external API is deployed as a 2nd gen Firebase function.
 

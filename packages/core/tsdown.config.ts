@@ -12,5 +12,3 @@ export default defineConfig({
   dts: true,
   platform: "node",
 });
-
-
