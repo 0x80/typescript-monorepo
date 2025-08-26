@@ -39,7 +39,7 @@
     "dev": "turbo dev",
     "deploy": "firebase deploy",
     "watch": "turbo watch build --filter=@repo/core --filter=@repo/fns --filter=@repo/api",
-    "test": "turbo test -- --watch false",
+    "test": "turbo test",
     "emulate": "firebase emulators:start --project demo-mono-ts",
     "format": "biome check --write",
     "db:get-indexes": "firebase firestore:indexes > firestore.indexes.json"

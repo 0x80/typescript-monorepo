@@ -132,7 +132,8 @@ This monorepo is designed around a **bundler-first approach** that prioritizes:
 
 Instead of relying on TypeScript project references, this monorepo uses:
 
-1. **Bundlers (bunchee)** to compile shared packages into optimized dist files
+1. **Bundlers (tsdown)** to compile shared packages into optimized dist files
+   (with `.d.ts` and source maps)
 2. **Turborepo** to orchestrate build dependencies and ensure proper ordering
 3. **TypeScript** purely for type checking against built artifacts
 
@@ -160,7 +161,7 @@ Instead of relying on TypeScript project references, this monorepo uses:
 The build process follows this sequence:
 
 1. **Shared packages build first** (`@repo/common`, `@repo/core`)
-   - Create optimized dist files with type declarations
+   - Create optimized dist files with `.d.ts` and `.d.ts.map`
    - Enable bundler optimizations (tree-shaking, minification, etc.)
 
 2. **Consumer packages check types** (`@repo/web`, `@repo/api`, `@repo/fns`)
@@ -171,9 +172,46 @@ The build process follows this sequence:
    - Ensures proper dependency ordering
    - Caches build artifacts for faster subsequent runs
 
+#### tsdown configuration
+
+Each buildable package contains a `tsdown.config.ts` that defines entries and
+output behavior. Examples:
+
+```ts
+// packages/common/tsdown.config.ts
+import { defineConfig } from "tsdown";
+
+export default defineConfig({
+  entry: "src/index.ts",
+  outDir: "dist",
+  target: "es2022",
+  sourcemap: true,
+  dts: true,
+});
+```
+
+```ts
+// packages/core/tsdown.config.ts
+import { defineConfig } from "tsdown";
+
+export default defineConfig({
+  entry: {
+    "db-refs": "src/db-refs.ts",
+    firebase: "src/firebase.ts",
+    "utils/index": "src/utils/index.ts",
+  },
+  outDir: "dist",
+  target: "es2022",
+  sourcemap: true,
+  dts: true,
+  platform: "node",
+});
+```
+
 **Key commands:**
 
-- `pnpm build` - Builds all packages with proper dependency ordering
+- `pnpm build` - Builds all packages with proper dependency ordering using
+  tsdown configs
 - `pnpm check-types` - Runs type checking after ensuring dependencies are built
 - `pnpm watch` - Continuously rebuilds packages as they change
 
@@ -192,7 +230,7 @@ sooner.
 ### Packages
 
 - [common](./packages/common) Code that is shared across both front-end and
-  back-end environments simultaneously. Built with bunchee for optimal output.
+  back-end environments simultaneously. Built with tsdown for optimal output.
 - [core](./packages/core) Code that is only shared between server environments,
   like cloud functions, containing mostly "core" business logic. Depends on
   common.

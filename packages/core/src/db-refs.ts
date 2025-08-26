@@ -4,7 +4,7 @@ import type { CollectionReference } from "firebase-admin/firestore";
  * Here we are using a path alias ~/ to be able to reference the src directory
  * from anywhere. This is configured out-of-the box via
  * codecompose/typescript-config. This is the responsibility of the bundler
- * (Bunchee), because the Typescript compiler does not do this for us. Not all
+ * (tsdown), because the Typescript compiler does not do this for us. Not all
  * bundlers have this feature.
  */
 import { db } from "~/firebase";
