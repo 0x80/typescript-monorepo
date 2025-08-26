@@ -6,7 +6,11 @@
 - [Notable Features](#notable-features)
 - [Install](#install)
 - [Usage](#usage)
-- [Monorepo Setup](#monorepo-setup)
+- [Monorepo Architecture](#monorepo-architecture)
+  - [Design Philosophy](#design-philosophy)
+  - [Bundler-First Approach](#bundler-first-approach)
+  - [Package Dependencies](#package-dependencies)
+  - [Build & Type Checking Strategy](#build--type-checking-strategy)
   - [Namespace](#namespace)
   - [Packages](#packages)
   - [Apps](#apps)
@@ -27,7 +31,9 @@ This is a personal quest for the perfect Typescript monorepo setup.
 
 > There is an accompanying article
 > ["My quest for the perfect TS monorepo"](https://thijs-koerselman.medium.com/my-quest-for-the-perfect-ts-monorepo-62653d3047eb)
-> that you might want to read for context.
+> that you might want to read for context. **Note: This article is now outdated
+> and will be updated or rewritten for 2025 to reflect the current bundler-first
+> architecture.**
 
 It is the best I could come up with given the tooling that is available, so
 expect this repository to change over time as the ecosystem around Typescript
@@ -104,19 +110,72 @@ UI on http://localhost:4000.
 You should now have a working local setup, in which code changes to any package
 are picked up.
 
-## Monorepo Setup
+## Monorepo Architecture
 
 > There is an accompanying article
 > ["My quest for the perfect TS monorepo"](https://thijs-koerselman.medium.com/my-quest-for-the-perfect-ts-monorepo-62653d3047eb)
-> that you might want to read for context.
+> that you might want to read for context. **Note: This article is now outdated
+> and will be updated or rewritten for 2025 to reflect the current bundler-first
+> architecture.**
 
-This monorepo used to showcase the "internal packages approach" for
-`@repo/common`, as described in the article, which lets you link to sources
-directly without a build step.
+### Design Philosophy
 
-I removed it because I ran into some issues, and I can not really recommend it.
-With the right configuration of incremental builds, references, and build
-orchestration, modern build tools seem to work fast and smoothly enough.
+This monorepo is designed around a **bundler-first approach** that prioritizes:
+
+- **Production-ready output**: Optimized, deployable packages
+- **Clear separation of concerns**: Bundlers handle compilation, TypeScript
+  handles type checking
+- **Efficient caching**: Build artifacts can be cached and reused
+- **Modern tooling**: Leveraging the best of both bundlers and TypeScript
+
+### Bundler-First Approach
+
+Instead of relying on TypeScript project references, this monorepo uses:
+
+1. **Bundlers (bunchee)** to compile shared packages into optimized dist files
+2. **Turborepo** to orchestrate build dependencies and ensure proper ordering
+3. **TypeScript** purely for type checking against built artifacts
+
+**Why this approach?**
+
+- **Project references** are designed for pure TypeScript workflows and conflict
+  with bundler setups
+- **Bundlers** provide better optimization, tree-shaking, and multiple module
+  format support
+- **Clear dependency flow** makes the build process more predictable and
+  maintainable
+
+### Package Dependencies
+
+```
+@repo/common (shared utilities)
+    ↓
+@repo/core (server-side logic)
+    ↓
+@repo/web, @repo/api, @repo/fns (consumers)
+```
+
+### Build & Type Checking Strategy
+
+The build process follows this sequence:
+
+1. **Shared packages build first** (`@repo/common`, `@repo/core`)
+   - Create optimized dist files with type declarations
+   - Enable bundler optimizations (tree-shaking, minification, etc.)
+
+2. **Consumer packages check types** (`@repo/web`, `@repo/api`, `@repo/fns`)
+   - TypeScript reads from built dist files
+   - No compilation conflicts or project reference complexity
+
+3. **Turborepo orchestrates** the entire process
+   - Ensures proper dependency ordering
+   - Caches build artifacts for faster subsequent runs
+
+**Key commands:**
+
+- `pnpm build` - Builds all packages with proper dependency ordering
+- `pnpm check-types` - Runs type checking after ensuring dependencies are built
+- `pnpm watch` - Continuously rebuilds packages as they change
 
 ### Namespace
 
@@ -133,9 +192,10 @@ sooner.
 ### Packages
 
 - [common](./packages/common) Code that is shared across both front-end and
-  back-end environments simultaneously.
+  back-end environments simultaneously. Built with bunchee for optimal output.
 - [core](./packages/core) Code that is only shared between server environments,
-  like cloud functions, containing mostly "core" business logic.
+  like cloud functions, containing mostly "core" business logic. Depends on
+  common.
 
 A standard name for a package that is only shared between client-side apps is
 `ui`. Besides sharing UI components, I also use it to share other things that
@@ -144,12 +204,12 @@ are solely relevant to the clients.
 ### Apps
 
 - [web](./apps/web) A Next.js based web application configured to use Tailwind
-  CSS and ShadCN components.
+  CSS and ShadCN components. Consumes built packages from common and core.
 
 ### Services
 
 - [fns](./services/fns) Various Firebase functions that execute on document
-  writes, pubsub events etc.
+  writes, pubsub events etc. Consumes built packages from common and core.
 - [api](./services/api) A 2nd gen Firebase function (based on Cloud Run) serving
   as an API endpoint. This package also illustrates how to use secrets.
 
