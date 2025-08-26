@@ -46,7 +46,7 @@
     "db:get-indexes": "firebase firestore:indexes > firestore.indexes.json"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.2.0",
+    "@biomejs/biome": "^2.2.2",
     "firebase-tools-with-isolate": "14.10.1",
     "prettier": "^3.6.2",
     "turbo": "^2.5.6",
