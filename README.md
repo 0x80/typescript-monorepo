@@ -132,7 +132,8 @@ This monorepo is designed around a **bundler-first approach** that prioritizes:
 
 Instead of relying on TypeScript project references, this monorepo uses:
 
-1. **Bundlers (tsdown)** to compile shared packages into optimized dist files (with `.d.ts` and source maps)
+1. **Bundlers (tsdown)** to compile shared packages into optimized dist files
+   (with `.d.ts` and source maps)
 2. **Turborepo** to orchestrate build dependencies and ensure proper ordering
 3. **TypeScript** purely for type checking against built artifacts
 
@@ -173,7 +174,8 @@ The build process follows this sequence:
 
 #### tsdown configuration
 
-Each buildable package contains a `tsdown.config.ts` that defines entries and output behavior. Examples:
+Each buildable package contains a `tsdown.config.ts` that defines entries and
+output behavior. Examples:
 
 ```ts
 // packages/common/tsdown.config.ts
@@ -193,8 +195,7 @@ export default defineConfig({
 import { defineConfig } from "tsdown";
 
 export default defineConfig({
-  // multi-entry outputs mapped to dist paths
-  entries: {
+  entry: {
     "db-refs": "src/db-refs.ts",
     firebase: "src/firebase.ts",
     "utils/index": "src/utils/index.ts",
@@ -209,7 +210,8 @@ export default defineConfig({
 
 **Key commands:**
 
-- `pnpm build` - Builds all packages with proper dependency ordering using tsdown configs
+- `pnpm build` - Builds all packages with proper dependency ordering using
+  tsdown configs
 - `pnpm check-types` - Runs type checking after ensuring dependencies are built
 - `pnpm watch` - Continuously rebuilds packages as they change
 
