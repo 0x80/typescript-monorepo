@@ -132,7 +132,7 @@ This monorepo is designed around a **bundler-first approach** that prioritizes:
 
 Instead of relying on TypeScript project references, this monorepo uses:
 
-1. **Bundlers (bunchee)** to compile shared packages into optimized dist files
+1. **Bundlers (tsdown)** to compile shared packages into optimized dist files
 2. **Turborepo** to orchestrate build dependencies and ensure proper ordering
 3. **TypeScript** purely for type checking against built artifacts
 
@@ -192,7 +192,7 @@ sooner.
 ### Packages
 
 - [common](./packages/common) Code that is shared across both front-end and
-  back-end environments simultaneously. Built with bunchee for optimal output.
+  back-end environments simultaneously. Built with tsdown for optimal output.
 - [core](./packages/core) Code that is only shared between server environments,
   like cloud functions, containing mostly "core" business logic. Depends on
   common.

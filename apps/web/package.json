@@ -35,9 +35,9 @@
     "@types/react": "^19.1.11",
     "@types/react-dom": "^19.0.3",
     "del-cli": "^6.0.0",
-
     "madge": "^8.0.0",
     "postcss": "^8.5.1",
-    "tailwindcss": "^4.1.12"
+    "tailwindcss": "^4.1.12",
+    "tsdown": "^0.14.2"
   }
 }

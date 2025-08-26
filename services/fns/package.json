@@ -12,10 +12,10 @@
     "check-types": "tsc --noEmit",
     "check-biome": "biome check",
     "check-circular": "madge --circular --extensions ts ./src --ts-config ./tsconfig.json",
-    "build": "bunchee --sourcemap --runtime node --target es2022",
-    "clean": "del-cli dist isolate tsconfig.tsbuildinfo",
-    "deploy": "firebase deploy",
-    "emulate": "firebase emulators:start --project demo-mono-ts"
+    "test": "vitest",
+    "build": "tsdown",
+    "clean": "del-cli dist tsconfig.tsbuildinfo",
+    "coverage": "vitest run --coverage"
   },
   "license": "MIT",
   "dependencies": {
@@ -40,9 +40,9 @@
     "@types/express": "^5.0.0",
     "@types/node": "^24.3.0",
     "@types/source-map-support": "^0.5.10",
-    "bunchee": "^6.6.0",
     "del-cli": "^6.0.0",
     "madge": "^8.0.0",
+    "tsdown": "^0.14.2",
     "typescript": "^5.9.2",
     "vitest": "^3.0.4"
   }

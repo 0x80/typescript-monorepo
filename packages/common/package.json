@@ -17,7 +17,7 @@
     "check-biome": "biome check",
     "check-circular": "madge --circular --extensions ts ./src --ts-config ./tsconfig.json",
     "test": "vitest",
-    "build": "bunchee --sourcemap --target es2022",
+    "build": "tsdown",
     "clean": "del-cli dist tsconfig.tsbuildinfo",
     "coverage": "vitest run --coverage"
   },
@@ -28,9 +28,9 @@
   },
   "devDependencies": {
     "@codecompose/typescript-config": "^1.2.0",
-    "bunchee": "^6.6.0",
     "del-cli": "^6.0.0",
     "madge": "^8.0.0",
+    "tsdown": "^0.14.2",
     "typescript": "^5.9.2",
     "vitest": "^3.0.4"
   }
