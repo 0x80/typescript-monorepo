@@ -5,12 +5,12 @@
   "type": "module",
   "scripts": {
     "check-types": "tsc --noEmit",
+    "check-biome": "biome check",
     "check-circular": "madge --circular --extensions ts ./src --ts-config ./tsconfig.json",
     "dev": "next dev",
     "build": "next build",
     "clean": "del-cli .next tsconfig.tsbuildinfo",
-    "start": "next start",
-    "lint": "biome check"
+    "start": "next start"
   },
   "dependencies": {
     "@radix-ui/react-icons": "^1.3.2",

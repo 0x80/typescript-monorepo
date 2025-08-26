@@ -30,14 +30,5 @@
       "~/*": ["./src/*"]
     }
   },
-  "include": ["./src", "./src/**/*.json"],
-  "exclude": ["./node_modules", "./dist"],
-  "references": [
-    {
-      "path": "../../packages/common"
-    },
-    {
-      "path": "../../packages/core"
-    }
-  ]
+  "include": ["./src", "./src/**/*.json"]
 }

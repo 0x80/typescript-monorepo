@@ -2,10 +2,5 @@
   "extends": "@codecompose/typescript-config/library.json",
   "compilerOptions": {
     "outDir": "dist"
-  },
-  "references": [
-    {
-      "path": "../common"
-    }
-  ]
+  }
 }
