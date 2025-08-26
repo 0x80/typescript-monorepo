@@ -14,9 +14,21 @@
       },
       "correctness": {
         /**
-         * To allow this, we would first need to get rid of TS project references, because it allows noEmit set to true, which is not compatible with references.
+         * To allow this, we would first need to get rid of TS project references,
+         * because it allows noEmit set to true, which is not compatible with references.
          */
         "useImportExtensions": "off"
+      },
+      "nursery": {
+        /**
+         * Nursery function are unstable and need to be activated explicitly
+         */
+        "noFloatingPromises": "error",
+        "noImportCycles": "error",
+        "noMisusedPromises": "error",
+        "noUnnecessaryConditions": "error",
+        // "noUnresolvedImports": "error", // Doesn't seem to understand node: prefix
+        "useExhaustiveSwitchCases": "error"
       }
     }
   },

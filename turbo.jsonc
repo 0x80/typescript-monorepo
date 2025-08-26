@@ -38,6 +38,12 @@
     "check-circular": {
       "dependsOn": ["^build"]
     },
+    "check-biome": {
+      "dependsOn": ["^build"]
+    },
+    "check-biome-ci": {
+      "dependsOn": ["^build"]
+    },
     "clean": {
       "cache": false
     },
