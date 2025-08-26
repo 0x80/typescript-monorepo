@@ -30,7 +30,9 @@
       "outputs": ["coverage/**"],
       "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
     },
-    "check-types": {},
+    "check-types": {
+      "dependsOn": ["^build"]
+    },
     "check-circular": {},
     "clean": {
       "cache": false

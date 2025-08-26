@@ -1,11 +1,3 @@
 {
-  "extends": "@codecompose/typescript-config/service.json",
-  "references": [
-    {
-      "path": "../../packages/common"
-    },
-    {
-      "path": "../../packages/core"
-    }
-  ]
+  "extends": "@codecompose/typescript-config/service.json"
 }
