@@ -21,14 +21,18 @@
 
     /* Opinion */
     "incremental": true,
-    "tsBuildInfoFile": "./tsconfig.tsbuildinfo",
     "module": "preserve",
     "outDir": "./dist",
     "baseUrl": ".",
     "rootDir": "./src",
+    "composite": true,
     "paths": {
       "~/*": ["./src/*"]
     }
   },
-  "include": ["./src", "./src/**/*.json"]
+  "include": ["./src", "./src/**/*.json"],
+  "references": [
+    { "path": "../../packages/common" },
+    { "path": "../../packages/core" }
+  ]
 }

@@ -14,7 +14,7 @@
     "check-circular": "madge --circular --extensions ts ./src --ts-config ./tsconfig.json",
     "test": "vitest",
     "build": "tsdown",
-    "clean": "del-cli dist tsconfig.tsbuildinfo isolate",
+    "clean": "del-cli dist isolate",
     "coverage": "vitest run --coverage",
     "deploy": "firebase deploy",
     "emulate": "firebase emulators:start --project demo-mono-ts"
