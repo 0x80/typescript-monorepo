@@ -15,7 +15,9 @@
     "test": "vitest",
     "build": "tsdown",
     "clean": "del-cli dist tsconfig.tsbuildinfo",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "deploy": "firebase deploy",
+    "emulate": "firebase emulators:start --project demo-mono-ts"
   },
   "license": "MIT",
   "dependencies": {
