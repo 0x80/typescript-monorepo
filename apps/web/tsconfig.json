@@ -15,8 +15,5 @@
     "${configDir}/.next/types/**/*.ts",
     ".next/types/**/*.ts"
   ],
-  "references": [
-    { "path": "../../packages/common" },
-    { "path": "../../packages/core" }
-  ]
+  "references": [{ "path": "../../packages/common" }]
 }
