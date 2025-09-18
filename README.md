@@ -63,7 +63,7 @@ and I recommend reading
 - ESM everything
 - Typescript path aliases (that get resolved in build output)
 - Unified linting and formatting with Biome
-- Shared standardized configuration for TypeScript
+- Minimal and strict TypeScript configuration via inheritance
 - Vitest
 - Multiple isolated Firebase deployments, using
   [firebase-tools-with-isolate](https://github.com/0x80/firebase-tools-with-isolate)

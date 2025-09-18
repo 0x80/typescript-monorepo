@@ -76,8 +76,8 @@ importers:
         version: 5.9.2
     devDependencies:
       '@codecompose/typescript-config':
-        specifier: ^2.1.0
-        version: 2.1.0
+        specifier: ^2.1.1
+        version: 2.1.1
       '@tailwindcss/postcss':
         specifier: ^4.1.12
         version: 4.1.12
@@ -116,8 +116,8 @@ importers:
         version: 2.30.0
     devDependencies:
       '@codecompose/typescript-config':
-        specifier: ^2.1.0
-        version: 2.1.0
+        specifier: ^2.1.1
+        version: 2.1.1
       del-cli:
         specifier: ^6.0.0
         version: 6.0.0
@@ -153,8 +153,8 @@ importers:
         version: 2.1.0
     devDependencies:
       '@codecompose/typescript-config':
-        specifier: ^2.1.0
-        version: 2.1.0
+        specifier: ^2.1.1
+        version: 2.1.1
       '@types/node':
         specifier: ^24.3.0
         version: 24.3.0
@@ -220,8 +220,8 @@ importers:
         version: 4.1.0
     devDependencies:
       '@codecompose/typescript-config':
-        specifier: ^2.1.0
-        version: 2.1.0
+        specifier: ^2.1.1
+        version: 2.1.1
       '@types/body-parser':
         specifier: ^1.19.5
         version: 1.19.6
@@ -299,8 +299,8 @@ importers:
         version: 0.5.21
     devDependencies:
       '@codecompose/typescript-config':
-        specifier: ^2.1.0
-        version: 2.1.0
+        specifier: ^2.1.1
+        version: 2.1.1
       '@types/body-parser':
         specifier: ^1.19.5
         version: 1.19.6
@@ -424,8 +424,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@codecompose/typescript-config@2.1.0':
-    resolution: {integrity: sha512-3rpiQM51WItTrQutcZ5uG6CP1myzfCK2ssBKtUamlqjmdwjzKLuBqI9uBHgEGa6ZfIBBqa6XqD5/GBK9cyMLhw==}
+  '@codecompose/typescript-config@2.1.1':
+    resolution: {integrity: sha512-gfaavY8TdNc7TJP9uP+TIFnyE28IGQCNfRbQiqUYmJTxzMmV1LnRozGYuXzZgUWVX6KWR3GOR0hPL36eSvnQJQ==}
 
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
@@ -6480,7 +6480,7 @@ snapshots:
   '@biomejs/cli-win32-x64@2.2.2':
     optional: true
 
-  '@codecompose/typescript-config@2.1.0': {}
+  '@codecompose/typescript-config@2.1.1': {}
 
   '@colors/colors@1.5.0':
     optional: true
