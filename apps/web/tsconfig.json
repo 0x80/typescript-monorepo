@@ -1,13 +1,5 @@
 {
-  "extends": "@codecompose/typescript-config/nextjs.json",
-  "compilerOptions": {
-    "composite": true,
-    "plugins": [
-      {
-        "name": "next" // plugin comes installed with nextjs
-      }
-    ]
-  },
+  "extends": "@codecompose/typescript-config/nextjs",
   "include": [
     "${configDir}",
     "${configDir}/**/*.json",

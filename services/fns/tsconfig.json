@@ -1,8 +1,6 @@
 {
-  "extends": "@codecompose/typescript-config/service.json",
-  "compilerOptions": {
-    "composite": true
-  },
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@codecompose/typescript-config/service",
   "references": [
     { "path": "../../packages/common" },
     { "path": "../../packages/core" }
