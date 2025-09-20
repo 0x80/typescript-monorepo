@@ -13,43 +13,53 @@
     "NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET",
     "NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID",
     "NEXT_PUBLIC_FIREBASE_APP_ID",
-    "NEXT_PUBLIC_USE_EMULATORS"
+    "NEXT_PUBLIC_USE_EMULATORS",
   ],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
       "outputLogs": "new-only",
-      "inputs": ["$TURBO_DEFAULT$", ".env", ".env.demo-mono-ts", ".env.local"]
+      "inputs": ["$TURBO_DEFAULT$", ".env", ".env.demo-mono-ts", ".env.local"],
     },
     "test": {
       "dependsOn": ["^build"],
       "outputs": [],
-      "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
+      "inputs": [
+        "src/**/*.tsx",
+        "src/**/*.ts",
+        "test/**/*.ts",
+        "test/**/*.tsx",
+      ],
     },
     "coverage": {
       "dependsOn": ["^build"],
       "outputs": ["coverage/**"],
-      "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
+      "inputs": [
+        "src/**/*.tsx",
+        "src/**/*.ts",
+        "test/**/*.ts",
+        "test/**/*.tsx",
+      ],
     },
     "check-types": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
     },
     "check-circular": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
     },
     "check-biome": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
     },
     "check-biome-ci": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
     },
     "clean": {
-      "cache": false
+      "cache": false,
     },
     "dev": {
       "cache": false,
-      "persistent": true
-    }
-  }
+      "persistent": true,
+    },
+  },
 }

@@ -31,18 +31,16 @@ This is a personal quest for the perfect Typescript monorepo setup.
 
 > There is an accompanying article
 > ["My quest for the perfect TS monorepo"](https://thijs-koerselman.medium.com/my-quest-for-the-perfect-ts-monorepo-62653d3047eb)
-I'd like you to read that for context. **Note: This article is now outdated
+> I'd like you to read that for context. **Note: This article is now outdated
 > and will be updated or rewritten for 2025 to reflect the current bundler-first
 > architecture.**
 
-It is the best I could come up with, given the available tooling, so
-expect this repository to change over time as the ecosystem around Typescript
-evolves.
+It is the best I could come up with, given the available tooling, so expect this
+repository to change over time as the ecosystem around Typescript evolves.
 
 My current projects are based on Node.js, Next.js, and Firebase, so that is what
-I am focusing on. If you use a different stack, 
-this can still be a great reference, as the approach itself does not depend on
-it.
+I am focusing on. If you use a different stack, this can still be a great
+reference, as the approach itself does not depend on it.
 
 Contributions and suggestions are welcome within the scope of this example, but
 I doubt there ever will be a one-size-fits-all solution, so this code should be
@@ -98,11 +96,11 @@ Then run `pnpm install` from the repository root.
 To get started, execute the following 3 scripts with `pnpm [script name]` from
 the root of the monorepo:
 
-| Script    | Description                                                                                                        |
-| --------- | ------------------------------------------------------------------------------------------------------------------ |
+| Script    | Description                                                                                                         |
+| --------- | ------------------------------------------------------------------------------------------------------------------- |
 | `watch`   | Continuously builds everything using the Turborepo watch task, except for the web app, which has its own dev server |
-| `emulate` | Starts the Firebase emulators.                                                                                     |
-| `dev`     | Starts the Next.js dev server to build the app on request.                                                         |
+| `emulate` | Starts the Firebase emulators.                                                                                      |
+| `dev`     | Starts the Next.js dev server to build the app on request.                                                          |
 
 The web app should become available on http://localhost:3000, and the emulators
 UI on http://localhost:4000.
@@ -114,7 +112,7 @@ are picked up.
 
 > There is an accompanying article
 > ["My quest for the perfect TS monorepo"](https://thijs-koerselman.medium.com/my-quest-for-the-perfect-ts-monorepo-62653d3047eb)
-I'd like you to read that for context. **Note: This article is now outdated
+> I'd like you to read that for context. **Note: This article is now outdated
 > and will be updated or rewritten for 2025 to reflect the current bundler-first
 > architecture.**
 
@@ -268,8 +266,8 @@ other registry, and because of that, the namespace you use to prefix your
 package names do not matter, and you might as well pick a standard one that you
 can be reused in every project.
 
-At first, I used `@mono`, and later I switched to `@repo` when I encountered that
-in the Turborepo examples. I like both, because they are equally short and
+At first, I used `@mono`, and later I switched to `@repo` when I encountered
+that in the Turborepo examples. I like both, because they are equally short and
 clear, but I went with `@repo` because I expect it might become a standard
 sooner.
 
@@ -299,8 +297,8 @@ are solely relevant to the clients.
 
 ## Prettier + ESLint vs Biome
 
-I have switched from using Prettier + ESLint to Biome, because it is much faster,
-but it is not a full replacement yet.
+I have switched from using Prettier + ESLint to Biome, because it is much
+faster, but it is not a full replacement yet.
 
 Biome (as of v2.2) does not have the type-aware rules that typescript-eslint
 provides. I find those rules the most valuable, and this is holding me back from
@@ -333,19 +331,19 @@ shared between all packages.
 Throughout this repository, we use a Firebase demo project called `demo-mono-ts`
 A demo project allows you to run emulators for the different components, like
 database without creating a Firebase project with resources. To make this work,
-pass the `--project` flag when starting the emulator, and use a
-name that begins with `demo-`.
+pass the `--project` flag when starting the emulator, and use a name that begins
+with `demo-`.
 
-When passing configuration to initializeApp, you can use any non-empty string for
-the API keys, as you can see in
+When passing configuration to initializeApp, you can use any non-empty string
+for the API keys, as you can see in
 [apps/web/.env.development](apps/web/.env.development).
 
 ### Deploying
 
-Firebase does not natively support monorepos where packages use shared code
-from other packages. The Firebase deploy pipeline wants to upload a
-self-contained package that can be treated similarly to an NPM package, so that
-it can run an install and execute the main entry from the manifest.
+Firebase does not natively support monorepos where packages use shared code from
+other packages. The Firebase deploy pipeline wants to upload a self-contained
+package that can be treated similarly to an NPM package, so that it can run an
+install and execute the main entry from the manifest.
 
 To support shared packages, this repo uses
 [firestore-tools-with-isolate](https://github.com/0x80/firebase-tools-with-isolate),
@@ -369,10 +367,10 @@ understand how the two are related, but it works.
 With the Firebase config in the root of the monorepo, you can configure and
 start the emulators for all packages at once with `pnpm emulate`.
 
-I have stored these in `.env` files in the respective service packages. Normally,
-you would want to store them in a file that is not part of the repository, like
-`.env.local`, but by placing them in `.env,` I prevent having to give instructions
-for setting them up just for running the demo.
+I have stored these in `.env` files in the respective service packages.
+Normally, you would want to store them in a file that is not part of the
+repository, like `.env.local`, but by placing them in `.env,` I prevent having
+to give instructions for setting them up just for running the demo.
 
 #### Secrets
 
@@ -380,8 +378,8 @@ The api service uses a secret for DEMO_API_KEY. To make secrets work with the
 emulator, you currently have to add the secret to `.secret.local` and also a
 `.env` or `.env.local` file. See
 [this issue](https://github.com/firebase/firebase-tools/issues/5520) for more
-info. I have placed it in `.env,` which is part of the repo, so you don't have to
-set anything up, but .env.local is the proper location, probably because that
+info. I have placed it in `.env,` which is part of the repo, so you don't have
+to set anything up, but .env.local is the proper location, probably because that
 file is not checked into git.
 
 ## Typed Firestore
