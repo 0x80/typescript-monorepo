@@ -1,4 +1,4 @@
-# Mono TS
+# Typescript Monorepo
 
 <!-- TOC -->
 
@@ -31,16 +31,16 @@ This is a personal quest for the perfect Typescript monorepo setup.
 
 > There is an accompanying article
 > ["My quest for the perfect TS monorepo"](https://thijs-koerselman.medium.com/my-quest-for-the-perfect-ts-monorepo-62653d3047eb)
-> that you might want to read for context. **Note: This article is now outdated
+I'd like you to read that for context. **Note: This article is now outdated
 > and will be updated or rewritten for 2025 to reflect the current bundler-first
 > architecture.**
 
-It is the best I could come up with given the tooling that is available, so
+It is the best I could come up with, given the available tooling, so
 expect this repository to change over time as the ecosystem around Typescript
 evolves.
 
 My current projects are based on Node.js, Next.js, and Firebase, so that is what
-I am focussing on primarily. If you use different a different stack, I believe
+I am focusing on. If you use a different stack, 
 this can still be a great reference, as the approach itself does not depend on
 it.
 
@@ -50,7 +50,7 @@ viewed as opinionated.
 
 I ended up basing a lot of things on the
 [Turborepo starter](https://turbo.build/repo/docs/getting-started/create-new),
-and I recommend reading
+And I recommend reading
 [their monorepo handbook](https://turbo.build/repo/docs/handbook).
 
 ## Notable Features
@@ -86,7 +86,7 @@ stopped updating them as Yarn is not that commonly used anymore.
 I recommend using `pnpm` over `npm` or `yarn`. Apart from being fast and
 efficient, PNPM has better support for monorepos.
 
-You can install PNPM with `corepack` which is part of modern Node.js versions:
+You can install PNPM with `corepack`, which is part of modern Node.js versions:
 
 - `corepack enable` (if you have not used it before)
 - `corepack prepare pnpm@latest --activate`
@@ -100,11 +100,11 @@ the root of the monorepo:
 
 | Script    | Description                                                                                                        |
 | --------- | ------------------------------------------------------------------------------------------------------------------ |
-| `watch`   | Continuously builds everything using the Turborepo watch task, except for the web app which has its own dev server |
+| `watch`   | Continuously builds everything using the Turborepo watch task, except for the web app, which has its own dev server |
 | `emulate` | Starts the Firebase emulators.                                                                                     |
 | `dev`     | Starts the Next.js dev server to build the app on request.                                                         |
 
-The web app should become available on http://localhost:3000 and the emulators
+The web app should become available on http://localhost:3000, and the emulators
 UI on http://localhost:4000.
 
 You should now have a working local setup, in which code changes to any package
@@ -114,7 +114,7 @@ are picked up.
 
 > There is an accompanying article
 > ["My quest for the perfect TS monorepo"](https://thijs-koerselman.medium.com/my-quest-for-the-perfect-ts-monorepo-62653d3047eb)
-> that you might want to read for context. **Note: This article is now outdated
+I'd like you to read that for context. **Note: This article is now outdated
 > and will be updated or rewritten for 2025 to reflect the current bundler-first
 > architecture.**
 
@@ -141,7 +141,7 @@ This monorepo uses a hybrid approach that combines the best of both worlds:
 
 - **Project references** provide excellent IDE support and eliminate the need
   for watch tasks during development
-- **Bundlers** provide better optimization, tree-shaking, and multiple module
+- **Bundlers** provide better optimization, tree-shaking, and multiple modules
   format support for production
 - **Clear dependency flow** makes the build process more predictable and
   maintainable
@@ -194,7 +194,7 @@ The build process follows this sequence:
 Each buildable package contains a `tsdown.config.ts` that defines entries and
 output behavior. Examples:
 
-```ts
+```typescript
 // packages/common/tsdown.config.ts
 import { defineConfig } from "tsdown";
 
@@ -207,7 +207,7 @@ export default defineConfig({
 });
 ```
 
-```ts
+```typescript
 // packages/core/tsdown.config.ts
 import { defineConfig } from "tsdown";
 
@@ -248,7 +248,7 @@ development. This is cumbersome because:
 - **Manual restarts** - often requiring restarting dev servers or clearing
   caches
 - **Poor developer experience** - developers lose the "instant feedback" that
-  makes modern development enjoyable
+  make modern development enjoyable
 
 With project references:
 
@@ -265,10 +265,10 @@ With project references:
 
 Often in a monorepo, you will never publish the shared packages to NPM or some
 other registry, and because of that, the namespace you use to prefix your
-package names does not matter. You might as well pick a standard one that you
-can use in every project.
+package names do not matter, and you might as well pick a standard one that you
+can be reused in every project.
 
-At first I used `@mono`, and later I switched to `@repo` when I encountered that
+At first, I used `@mono`, and later I switched to `@repo` when I encountered that
 in the Turborepo examples. I like both, because they are equally short and
 clear, but I went with `@repo` because I expect it might become a standard
 sooner.
@@ -287,20 +287,20 @@ are solely relevant to the clients.
 
 ### Apps
 
-- [web](./apps/web) A Next.js based web application configured to use Tailwind
-  CSS and ShadCN components. Consumes built packages from common and core.
+- [web](./apps/web) A NextJs-based web application configured to use Tailwind
+  CSS and ShadCN components, and consumes built packages from common and core.
 
 ### Services
 
 - [fns](./services/fns) Various Firebase functions that execute on document
-  writes, pubsub events etc. Consumes built packages from common and core.
+  writes, pubsub events, and consume built packages from common and core.
 - [api](./services/api) A 2nd gen Firebase function (based on Cloud Run) serving
   as an API endpoint. This package also illustrates how to use secrets.
 
 ## Prettier + ESLint vs Biome
 
-I have switched from using Prettier + ESLint to Biome, because it is much faster
-but it seems it is not a full replacement yet.
+I have switched from using Prettier + ESLint to Biome, because it is much faster,
+but it is not a full replacement yet.
 
 Biome (as of v2.2) does not have the type-aware rules that typescript-eslint
 provides. I find those rules the most valuable, and this is holding me back from
@@ -314,10 +314,10 @@ Things I miss from Prettier are:
 - Markdown formatting
 - JSDoc formatting (via plugin)
 
-For this reason I have kept prettier for markdown formatting. For JSDoc
-formatting I have no solution yet.
+For this reason, I have kept prettier for markdown formatting. For JSDoc
+formatting, I have no solution yet.
 
-If you want to see a working (shared) ESLint configuration, just hop back a few
+If you want to see a working (shared) ESLint configuration, hop back a few
 commits to before Biome was introduced.
 
 ## Firebase
@@ -325,24 +325,24 @@ commits to before Biome was introduced.
 In their
 [documentation for monorepos](https://firebase.google.com/docs/functions/organize-functions?gen=2nd#managing_multiple_source_packages_monorepo),
 Firebase recommends putting all configurations in the root of the monorepo. This
-makes it possible to deploy all packages at once, and easily start the emulators
+makes it possible to deploy all packages at once and easily start the emulators
 shared between all packages.
 
 ### Demo Project
 
 Throughout this repository, we use a Firebase demo project called `demo-mono-ts`
-A demo project allows you to run emulators for the different components like
-database without creating a Firebase projects with resources. To make this work
-you pass the `--project` flag when starting the emulator, and you need to use a
-name that starts with `demo-`.
+A demo project allows you to run emulators for the different components, like
+database without creating a Firebase project with resources. To make this work,
+pass the `--project` flag when starting the emulator, and use a
+name that begins with `demo-`.
 
-When passing configuration to initializeApp you can use any non-empty string for
-the API keys as you can see in
+When passing configuration to initializeApp, you can use any non-empty string for
+the API keys, as you can see in
 [apps/web/.env.development](apps/web/.env.development).
 
 ### Deploying
 
-Firebase does not natively support monorepos where packages used shared code
+Firebase does not natively support monorepos where packages use shared code
 from other packages. The Firebase deploy pipeline wants to upload a
 self-contained package that can be treated similarly to an NPM package, so that
 it can run an install and execute the main entry from the manifest.
@@ -355,33 +355,33 @@ which is a firebase-tools fork I created to integrate
 explaining what it does and why it is needed.
 
 This demo can be run using only the emulators, but if you would like to see the
-deployment to Firebase working you can simply execute
+deployment to Firebase is working; you can execute
 `npx firebase deploy --project your-project-name` the root of the monorepo.
 
 You might notice `@google-cloud/functions-framework` as a dependency in the
 service package even though it is not being used in code imports. It is
 currently required for Firebase to be able to deploy a PNPM workspace. Without
-it you will get an error asking you to install the dependency. I don't quite
+it, you will get an error asking you to install the dependency. I don't
 understand how the two are related, but it works.
 
 ### Running Emulators
 
-With the firebase config in the root of the monorepo, you can configure and
+With the Firebase config in the root of the monorepo, you can configure and
 start the emulators for all packages at once with `pnpm emulate`.
 
-I have stored these in `.env` files in the respective service packages. Normally
-you would want to store them in a file that is not part of the repository like
-`.env.local` but by placing them in `.env` I prevent having to give instructions
+I have stored these in `.env` files in the respective service packages. Normally,
+you would want to store them in a file that is not part of the repository, like
+`.env.local`, but by placing them in `.env,` I prevent having to give instructions
 for setting them up just for running the demo.
 
 #### Secrets
 
 The api service uses a secret for DEMO_API_KEY. To make secrets work with the
-emulator you currently have to add the secret to `.secret.local` and also a
+emulator, you currently have to add the secret to `.secret.local` and also a
 `.env` or `.env.local` file. See
 [this issue](https://github.com/firebase/firebase-tools/issues/5520) for more
-info. I have placed it in `.env` which is part of the repo, so you don't have to
-set anything up, but .env.local is the proper location probably because that
+info. I have placed it in `.env,` which is part of the repo, so you don't have to
+set anything up, but .env.local is the proper location, probably because that
 file is not checked into git.
 
 ## Typed Firestore
@@ -390,6 +390,6 @@ This repo uses [@typed-firestore/react](https://github.com/0x80/typed-firestore)
 and [@typed-firestore/server](https://github.com/0x80/typed-firestore-server) to
 provide typed Firestore abstractions for both React and Node.js.
 
-If you're interested here is an
+If you're interested, here is an
 [in-depth article](https://dev.to/0x80/how-to-write-clean-typed-firestore-code-37j2)
 of how they came about.
