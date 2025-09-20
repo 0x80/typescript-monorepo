@@ -7,5 +7,5 @@
   }
     ```
     */
-  "proseWrap": "always"
+  proseWrap: "always",
 }
