@@ -1,7 +1,7 @@
 {
   "name": "typescript-monorepo",
   "description": "A quest for the perfect Typescript monorepo",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "author": "Thijs Koerselman",
   "license": "MIT",
   "repository": {
