@@ -1,8 +1,5 @@
 {
-  "extends": "@codecompose/typescript-config/library.json",
-  "compilerOptions": {
-    "composite": true,
-    "outDir": "dist"
-  },
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@codecompose/typescript-config/shared-library",
   "references": [{ "path": "../common" }]
 }

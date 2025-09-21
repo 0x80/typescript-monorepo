@@ -1,13 +1,6 @@
 {
-  "extends": "@codecompose/typescript-config/nextjs.json",
-  "compilerOptions": {
-    "composite": true,
-    "plugins": [
-      {
-        "name": "next" // plugin comes installed with nextjs
-      }
-    ]
-  },
+  "extends": "@codecompose/typescript-config/nextjs",
+  /* This is injected by Next because v15.5 does not yet understand that it comes from extends already */
   "include": [
     "${configDir}",
     "${configDir}/**/*.json",
@@ -15,5 +8,9 @@
     "${configDir}/.next/types/**/*.ts",
     ".next/types/**/*.ts"
   ],
-  "references": [{ "path": "../../packages/common" }]
+  "references": [
+    {
+      "path": "../../packages/common"
+    }
+  ]
 }
