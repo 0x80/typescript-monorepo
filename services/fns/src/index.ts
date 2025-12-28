@@ -17,10 +17,4 @@ sourceMapSupport.install();
  */
 import "firebase-functions/logger/compat";
 
-/**
- * Firebase functions still do not support native source maps, so we need to
- * install source-map-support to get stack traces in error reporting.
- */
-sourceMapSupport.install();
-
 export * from "./update-counter";
