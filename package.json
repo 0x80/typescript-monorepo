@@ -23,8 +23,8 @@
   "scripts": {
     "check-types": "turbo check-types --continue",
     "check-biome-ci": "biome ci",
-    "check-biome": "biome check",
-    "?check-biome": "turbo check-biome --continue",
+    "check-format": "biome format .",
+    "check-lint": "biome lint .",
     "check-circular": "turbo check-circular --continue",
     "build": "turbo build",
     "build:fns": "turbo build --filter=@repo/fns",
