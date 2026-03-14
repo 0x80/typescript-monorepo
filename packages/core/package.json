@@ -33,17 +33,9 @@
     "vitest": "^3.0.4"
   },
   "exports": {
-    "./db-refs": {
-      "types": "./dist/db-refs.d.ts",
-      "default": "./dist/db-refs.js"
-    },
-    "./firebase": {
-      "types": "./dist/firebase.d.ts",
-      "default": "./dist/firebase.js"
-    },
-    "./utils": {
-      "types": "./dist/utils/index.d.ts",
-      "default": "./dist/utils/index.js"
-    }
+    "./db-refs": "./dist/db-refs.js",
+    "./firebase": "./dist/firebase.js",
+    "./utils": "./dist/utils/index.js",
+    "./package.json": "./package.json"
   }
 }

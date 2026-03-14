@@ -4,10 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
-    }
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
   },
   "files": [
     "dist"
@@ -33,5 +31,8 @@
     "tsdown": "^0.14.2",
     "typescript": "^5.9.2",
     "vitest": "^3.0.4"
-  }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts"
 }
