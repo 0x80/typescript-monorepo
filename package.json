@@ -1,30 +1,27 @@
 {
   "name": "typescript-monorepo",
-  "description": "A quest for the perfect Typescript monorepo",
   "version": "1.3.2",
-  "author": "Thijs Koerselman",
+  "description": "A quest for the perfect Typescript monorepo",
+  "keywords": [
+    "esm",
+    "firebase",
+    "firestore",
+    "isolate-package",
+    "monorepo",
+    "nextjs",
+    "turborepo",
+    "typed-firestore",
+    "typescript"
+  ],
   "license": "MIT",
+  "author": "Thijs Koerselman",
   "repository": {
     "type": "git",
     "url": "https://github.com/0x80/typescript-monorepo"
   },
-  "keywords": [
-    "typescript",
-    "monorepo",
-    "firebase",
-    "firestore",
-    "isolate-package",
-    "typed-firestore",
-    "esm",
-    "turborepo",
-    "nextjs"
-  ],
-  "packageManager": "pnpm@10.14.0",
   "scripts": {
     "check-types": "turbo check-types --continue",
-    "check-biome-ci": "biome ci",
-    "check-format": "biome format .",
-    "check-lint": "biome lint .",
+    "check-format": "oxfmt --check",
     "check-circular": "turbo check-circular --continue",
     "build": "turbo build",
     "build:fns": "turbo build --filter=@repo/fns",
@@ -35,20 +32,23 @@
     "watch": "turbo watch build --filter=@repo/core --filter=@repo/fns --filter=@repo/api",
     "test": "turbo test",
     "emulate": "firebase emulators:start --project demo-mono-ts",
-    "format": "biome check --write",
+    "format": "oxfmt",
+    "lint": "oxlint -c .oxlintrc.json --type-aware",
     "db:get-indexes": "firebase firestore:indexes > firestore.indexes.json",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.4.7",
     "firebase-tools-with-isolate": "14.16.0",
-    "prettier": "^3.8.1",
+    "oxfmt": "^0.33.0",
+    "oxlint": "^1.48.0",
+    "oxlint-tsgolint": "^0.14.0",
     "turbo": "^2.8.17",
     "typescript": "^5.9.3",
     "vercel": "^50.32.5",
     "vitepress": "^1.6.4",
     "vitest": "^4.1.0"
-  }
+  },
+  "packageManager": "pnpm@10.14.0"
 }

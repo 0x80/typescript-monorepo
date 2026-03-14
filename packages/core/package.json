@@ -1,21 +1,26 @@
 {
   "name": "@repo/core",
-  "description": "Code to share between backend apps/services",
   "version": "0.0.0",
-  "type": "module",
+  "description": "Code to share between backend apps/services",
+  "license": "MIT",
   "files": [
     "dist"
   ],
+  "type": "module",
+  "exports": {
+    "./db-refs": "./dist/db-refs.mjs",
+    "./firebase": "./dist/firebase.mjs",
+    "./utils": "./dist/utils/index.mjs",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "check-types": "tsc --noEmit",
-    "check-biome": "biome check",
     "check-circular": "madge --circular --extensions ts ./src --ts-config ./tsconfig.json",
     "test": "vitest",
     "build": "tsdown",
     "clean": "del-cli dist",
     "coverage": "vitest run --coverage "
   },
-  "license": "MIT",
   "dependencies": {
     "@repo/common": "workspace:*",
     "@sindresorhus/is": "^7.2.0",
@@ -31,11 +36,5 @@
     "tsdown": "^0.21.2",
     "typescript": "^5.9.3",
     "vitest": "^4.1.0"
-  },
-  "exports": {
-    "./db-refs": "./dist/db-refs.mjs",
-    "./firebase": "./dist/firebase.mjs",
-    "./utils": "./dist/utils/index.mjs",
-    "./package.json": "./package.json"
   }
 }
