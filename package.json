@@ -36,7 +36,10 @@
     "test": "turbo test",
     "emulate": "firebase emulators:start --project demo-mono-ts",
     "format": "biome check --write",
-    "db:get-indexes": "firebase firestore:indexes > firestore.indexes.json"
+    "db:get-indexes": "firebase firestore:indexes > firestore.indexes.json",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.2",
@@ -45,6 +48,7 @@
     "turbo": "^2.5.6",
     "typescript": "^5.9.2",
     "vercel": "^46.0.2",
+    "vitepress": "^1.6.4",
     "vitest": "^3.0.4"
   }
 }

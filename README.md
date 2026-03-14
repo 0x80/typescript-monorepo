@@ -1,5 +1,7 @@
 # Typescript Monorepo
 
+Documentation: [typescript-monorepo.codecompose.dev](https://typescript-monorepo.codecompose.dev)
+
 <!-- TOC -->
 
 - [Introduction](#introduction)
