@@ -1,25 +1,25 @@
 {
   "name": "@repo/common",
-  "description": "Common code for both backend and frontend",
   "version": "0.0.0",
+  "description": "Common code for both backend and frontend",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "type": "module",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": "./dist/index.mjs",
     "./package.json": "./package.json"
   },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "check-types": "tsc --noEmit",
-    "check-biome": "biome check",
     "check-circular": "madge --circular --extensions ts ./src --ts-config ./tsconfig.json",
     "test": "vitest",
     "build": "tsdown",
     "clean": "del-cli dist",
     "coverage": "vitest run --coverage"
   },
-  "license": "MIT",
   "dependencies": {
     "firebase": "^12.10.0",
     "remeda": "^2.33.6"
@@ -31,6 +31,5 @@
     "tsdown": "^0.21.2",
     "typescript": "^5.9.3",
     "vitest": "^4.1.0"
-  },
-  "types": "./dist/index.d.ts"
+  }
 }

@@ -2,15 +2,15 @@
   "name": "@repo/fns",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
-  "main": "./dist/index.js",
+  "license": "MIT",
   "files": [
     "dist",
     ".env.*"
   ],
+  "type": "module",
+  "main": "./dist/index.js",
   "scripts": {
     "check-types": "tsc --noEmit",
-    "check-biome": "biome check",
     "check-circular": "madge --circular --extensions ts ./src --ts-config ./tsconfig.json",
     "test": "vitest",
     "build": "tsdown",
@@ -19,7 +19,6 @@
     "deploy": "firebase deploy",
     "emulate": "firebase emulators:start --project demo-mono-ts"
   },
-  "license": "MIT",
   "dependencies": {
     "@google-cloud/functions-framework": "^5.0.2",
     "@repo/common": "workspace:*",
