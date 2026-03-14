@@ -26,8 +26,8 @@ export default function KeyValueList(props: {
   );
 }
 
-function fsValueToString(value?: FsValue) {
-  if (!isDefined(value)) {
+function fsValueToString(value: FsValue | undefined) {
+  if (value === undefined) {
     return "(undefined)";
   }
 
