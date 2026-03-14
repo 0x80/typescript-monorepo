@@ -3,6 +3,10 @@ name: Deploy Documentation
 on:
   push:
     branches: [main]
+    paths:
+      - "docs/**"
+      - "package.json"
+      - ".github/workflows/deploy-docs.yml"
   workflow_dispatch:
 
 permissions:
@@ -36,7 +40,7 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Build documentation
         run: pnpm docs:build
