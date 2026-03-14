@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "exports": {
-    ".": "./dist/index.js",
+    ".": "./dist/index.mjs",
     "./package.json": "./package.json"
   },
   "files": [
@@ -21,18 +21,16 @@
   },
   "license": "MIT",
   "dependencies": {
-    "firebase": "^12.1.0",
-    "remeda": "^2.20.0"
+    "firebase": "^12.10.0",
+    "remeda": "^2.33.6"
   },
   "devDependencies": {
-    "@codecompose/typescript-config": "^2.2.0",
-    "del-cli": "^6.0.0",
+    "@codecompose/typescript-config": "^3.0.0",
+    "del-cli": "^7.0.0",
     "madge": "^8.0.0",
-    "tsdown": "^0.14.2",
-    "typescript": "^5.9.2",
-    "vitest": "^3.0.4"
+    "tsdown": "^0.21.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.0"
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
   "types": "./dist/index.d.ts"
 }

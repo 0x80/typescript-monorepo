@@ -18,24 +18,24 @@
   "license": "MIT",
   "dependencies": {
     "@repo/common": "workspace:*",
-    "@sindresorhus/is": "^7.0.1",
-    "firebase-admin": "^13.0.2",
-    "firebase-functions": "^6.3.0",
+    "@sindresorhus/is": "^7.2.0",
+    "firebase-admin": "^13.7.0",
+    "firebase-functions": "^7.1.1",
     "get-or-throw": "^2.1.0"
   },
   "devDependencies": {
-    "@codecompose/typescript-config": "^2.2.0",
-    "@types/node": "^24.3.0",
-    "del-cli": "^6.0.0",
+    "@codecompose/typescript-config": "^3.0.0",
+    "@types/node": "^25.5.0",
+    "del-cli": "^7.0.0",
     "madge": "^8.0.0",
-    "tsdown": "^0.14.2",
-    "typescript": "^5.9.2",
-    "vitest": "^3.0.4"
+    "tsdown": "^0.21.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.0"
   },
   "exports": {
-    "./db-refs": "./dist/db-refs.js",
-    "./firebase": "./dist/firebase.js",
-    "./utils": "./dist/utils/index.js",
+    "./db-refs": "./dist/db-refs.mjs",
+    "./firebase": "./dist/firebase.mjs",
+    "./utils": "./dist/utils/index.mjs",
     "./package.json": "./package.json"
   }
 }
