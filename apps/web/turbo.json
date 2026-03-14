@@ -1,6 +1,5 @@
 {
   "extends": ["//"],
-  "globalDependencies": [".env", "**/.env.*local"],
   "tasks": {
     "build": {
       "env": [

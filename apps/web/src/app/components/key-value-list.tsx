@@ -1,4 +1,3 @@
-import { isDefined } from "@repo/common";
 import { Timestamp } from "firebase/firestore";
 import { Table, TableBody, TableCell, TableRow } from "~/components/ui/table";
 
@@ -26,8 +25,8 @@ export default function KeyValueList(props: {
   );
 }
 
-function fsValueToString(value?: FsValue) {
-  if (!isDefined(value)) {
+function fsValueToString(value: FsValue | undefined) {
+  if (value === undefined) {
     return "(undefined)";
   }
 

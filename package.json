@@ -36,15 +36,19 @@
     "test": "turbo test",
     "emulate": "firebase emulators:start --project demo-mono-ts",
     "format": "biome check --write",
-    "db:get-indexes": "firebase firestore:indexes > firestore.indexes.json"
+    "db:get-indexes": "firebase firestore:indexes > firestore.indexes.json",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.2.2",
-    "firebase-tools-with-isolate": "14.10.1",
-    "prettier": "^3.6.2",
-    "turbo": "^2.5.6",
-    "typescript": "^5.9.2",
-    "vercel": "^46.0.2",
-    "vitest": "^3.0.4"
+    "@biomejs/biome": "^2.4.7",
+    "firebase-tools-with-isolate": "14.16.0",
+    "prettier": "^3.8.1",
+    "turbo": "^2.8.17",
+    "typescript": "^5.9.3",
+    "vercel": "^50.32.5",
+    "vitepress": "^1.6.4",
+    "vitest": "^4.1.0"
   }
 }

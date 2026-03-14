@@ -6,6 +6,10 @@ dist
 .vercel
 .turbo
 
+# vitepress
+docs/.vitepress/cache
+docs/.vitepress/dist
+
 # debug
 *.log
 
