@@ -39,5 +39,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build packages
+        if: matrix.command == 'lint'
+        run: pnpm build
+
       - name: Run ${{ matrix.command }}
         run: pnpm ${{ matrix.command }}
