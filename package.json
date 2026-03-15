@@ -1,6 +1,6 @@
 {
   "name": "typescript-monorepo",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "A quest for the perfect Typescript monorepo",
   "keywords": [
     "esm",
