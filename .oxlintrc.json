@@ -1,19 +1,55 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["typescript"],
+  "plugins": ["import", "typescript", "unicorn"],
   "categories": {
     "correctness": "error",
     "suspicious": "warn",
-    "perf": "warn"
+    "pedantic": "off",
+    "perf": "warn",
+    "style": "off",
+    "restriction": "off"
   },
   "rules": {
-    "typescript/no-floating-promises": "error",
+    "import/no-cycle": "error",
+    "import/no-duplicates": "warn",
+    "import/no-self-import": "error",
+    "import/no-unassigned-import": "off",
+    "import/no-named-as-default-member": "off",
+    "import/no-named-as-default": "off",
+    "typescript/no-unused-vars": [
+      "warn",
+      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
+    ],
+    "typescript/no-explicit-any": "error",
     "typescript/no-misused-promises": "error",
-    "typescript/await-thenable": "error",
-    "typescript/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
     "typescript/no-unsafe-type-assertion": "off",
-    "typescript/no-unnecessary-boolean-literal-compare": "off",
+    "typescript/restrict-template-expressions": "off",
+    "unicorn/prefer-node-protocol": "error",
+    "unicorn/no-array-sort": "off",
+    "unicorn/prefer-set-has": "off",
+    "no-console": "warn",
     "no-await-in-loop": "off"
   },
-  "ignorePatterns": ["*.d.ts", "*.d.mts"]
+  "ignorePatterns": ["*.d.ts", "*.d.mts", "packages/pulumi-components/**"],
+  "overrides": [
+    {
+      "files": ["**/*.test.ts", "**/*.spec.ts", "**/test/**/*.ts"],
+      "rules": {
+        "typescript/no-explicit-any": "off",
+        "unicorn/consistent-function-scoping": "off"
+      }
+    },
+    {
+      "files": [
+        "**/vitest.global-setup.ts",
+        "**/vitest.setup.ts",
+        "apps/cli/src/env.ts",
+        "**/scripts/**/*.ts",
+        "packages/gcp-typed-pubsub/**/*.ts"
+      ],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ]
 }

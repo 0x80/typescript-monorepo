@@ -15,6 +15,7 @@
   "scripts": {
     "check-types": "tsc --noEmit",
     "check-circular": "madge --circular --extensions ts ./src --ts-config ./tsconfig.json",
+    "check-lint": "oxlint -c .oxlintrc.json --import-plugin --type-aware",
     "test": "vitest",
     "build": "tsdown",
     "clean": "del-cli dist",

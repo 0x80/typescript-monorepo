@@ -33,6 +33,7 @@
     "test": "turbo test",
     "emulate": "firebase emulators:start --project demo-mono-ts",
     "format": "oxfmt",
+    "check-lint": "turbo build && oxlint -c .oxlintrc.json --type-aware",
     "lint": "oxlint -c .oxlintrc.json --type-aware",
     "db:get-indexes": "firebase firestore:indexes > firestore.indexes.json",
     "docs:dev": "vitepress dev docs",

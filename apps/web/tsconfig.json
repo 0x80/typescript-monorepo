@@ -1,5 +1,11 @@
 {
   "extends": "@codecompose/typescript-config/nextjs",
+  "compilerOptions": {
+    "paths": {
+      "~/*": ["./src/*"],
+      "@/*": ["./src/*"]
+    }
+  },
   /* This is injected by Next because v15.5 does not yet understand that it comes from extends already */
   "include": [
     "${configDir}",

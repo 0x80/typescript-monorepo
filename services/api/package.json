@@ -7,7 +7,6 @@
     ".env.*"
   ],
   "type": "module",
-  "main": "./dist/index.js",
   "scripts": {
     "check-types": "tsc --noEmit",
     "check-circular": "madge --circular --extensions ts ./src --ts-config ./tsconfig.json",
@@ -47,5 +46,9 @@
     "tsdown": "^0.21.2",
     "typescript": "^5.9.3",
     "vitest": "^4.1.0"
+  },
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
   }
 }
