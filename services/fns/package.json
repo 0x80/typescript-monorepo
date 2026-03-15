@@ -38,7 +38,7 @@
     "source-map-support": "^0.5.21"
   },
   "devDependencies": {
-    "@codecompose/typescript-config": "^3.0.0",
+    "@codecompose/typescript-config": "^3.0.2",
     "@types/body-parser": "^1.19.5",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.6",

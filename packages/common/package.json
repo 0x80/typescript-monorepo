@@ -26,7 +26,7 @@
     "remeda": "^2.33.6"
   },
   "devDependencies": {
-    "@codecompose/typescript-config": "^3.0.0",
+    "@codecompose/typescript-config": "^3.0.2",
     "del-cli": "^7.0.0",
     "madge": "^8.0.0",
     "tsdown": "^0.21.2",

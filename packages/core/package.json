@@ -29,7 +29,7 @@
     "get-or-throw": "^2.1.0"
   },
   "devDependencies": {
-    "@codecompose/typescript-config": "^3.0.0",
+    "@codecompose/typescript-config": "^3.0.2",
     "@types/node": "^25.5.0",
     "del-cli": "^7.0.0",
     "madge": "^8.0.0",
