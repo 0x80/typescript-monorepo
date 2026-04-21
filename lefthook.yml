@@ -2,7 +2,7 @@ pre-commit:
   parallel: true
   commands:
     format:
-      glob: "*.{js,jsx,ts,tsx,mjs,cjs,json,jsonc,css,md,yaml}"
+      glob: "*.{js,jsx,ts,tsx,mjs,cjs,json,jsonc,css,md,yaml,yml}"
       run: pnpm exec oxfmt --no-error-on-unmatched-pattern {staged_files}
       stage_fixed: true
     lint:
