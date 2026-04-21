@@ -8,9 +8,18 @@
   ],
   "type": "module",
   "exports": {
-    "./db-refs": "./dist/db-refs.mjs",
-    "./firebase": "./dist/firebase.mjs",
-    "./utils": "./dist/utils/index.mjs",
+    "./db-refs": {
+      "types": "./dist/db-refs.d.mts",
+      "default": "./dist/db-refs.mjs"
+    },
+    "./firebase": {
+      "types": "./dist/firebase.d.mts",
+      "default": "./dist/firebase.mjs"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.mts",
+      "default": "./dist/utils/index.mjs"
+    },
     "./package.json": "./package.json"
   },
   "scripts": {
