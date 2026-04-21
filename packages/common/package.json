@@ -14,23 +14,20 @@
   },
   "scripts": {
     "check-types": "tsc --noEmit",
-    "check-circular": "madge --circular --extensions ts ./src --ts-config ./tsconfig.json",
-    "check-lint": "oxlint -c .oxlintrc.json --import-plugin --type-aware",
     "test": "vitest",
     "build": "tsdown",
     "clean": "del-cli dist",
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "firebase": "^12.10.0",
-    "remeda": "^2.33.6"
+    "firebase": "^12.12.1",
+    "remeda": "^2.33.7"
   },
   "devDependencies": {
-    "@codecompose/typescript-config": "^3.0.2",
+    "@codecompose/typescript-config": "^3.2.0",
     "del-cli": "^7.0.0",
-    "madge": "^8.0.0",
-    "tsdown": "^0.21.2",
-    "typescript": "^5.9.3",
-    "vitest": "^4.1.0"
+    "tsdown": "^0.21.9",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.5"
   }
 }

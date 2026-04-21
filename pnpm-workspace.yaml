@@ -3,5 +3,7 @@ packages:
   - packages/*
   - services/*
 
-ignoredBuiltDependencies:
+onlyBuiltDependencies:
+  - "@firebase/util"
   - esbuild
+  - lefthook

@@ -2,14 +2,14 @@
   "functions": [
     {
       "source": "services/fns",
-      "runtime": "nodejs22",
+      "runtime": "nodejs24",
       "isolate": true,
       "predeploy": ["turbo build"],
       "codebase": "fns"
     },
     {
       "source": "services/api",
-      "runtime": "nodejs22",
+      "runtime": "nodejs24",
       "isolate": true,
       "predeploy": ["turbo build"],
       "codebase": "api"

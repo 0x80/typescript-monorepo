@@ -26,7 +26,10 @@ reference, as the approach itself does not depend on it.
 - Working IDE go-to-definition and go-to-type-definition using `.d.ts.map` files
 - ESM everything
 - Typescript path aliases (that get resolved in build output)
-- Unified linting and formatting with Biome
+- Fast linting and formatting with [oxlint](https://oxc.rs/docs/guide/usage/linter)
+  and [oxfmt](https://oxc.rs/docs/guide/usage/formatter) (Rust-based)
+- Pre-commit hooks via [lefthook](https://lefthook.dev/) running format + lint in
+  parallel on staged files
 - Minimal and strict TypeScript configuration via inheritance
 - Vitest
 - Multiple isolated Firebase deployments, using

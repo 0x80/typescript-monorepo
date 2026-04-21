@@ -26,7 +26,7 @@ package that can be treated similarly to an NPM package, so that it can run an
 install and execute the main entry from the manifest.
 
 To support shared packages, this repo uses
-[firestore-tools-with-isolate](https://github.com/0x80/firebase-tools-with-isolate),
+[firebase-tools-with-isolate](https://github.com/0x80/firebase-tools-with-isolate),
 which is a firebase-tools fork I created to integrate
 [isolate-package](https://github.com/0x80/isolate-package/). I wrote an
 [article](https://thijs-koerselman.medium.com/deploy-to-firebase-without-the-hacks-e685de39025e)
