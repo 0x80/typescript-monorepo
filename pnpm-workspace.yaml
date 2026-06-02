@@ -3,7 +3,17 @@ packages:
   - packages/*
   - services/*
 
-onlyBuiltDependencies:
-  - "@firebase/util"
-  - esbuild
-  - lefthook
+minimumReleaseAge: 2880
+minimumReleaseAgeExclude:
+  - "@codecompose/typescript-config"
+
+allowBuilds:
+  "@firebase/util": true
+  esbuild: true
+  lefthook: true
+  # Transitive native/codegen install scripts that this repo's build and
+  # deploy output do not need; denied explicitly (matches prior behavior,
+  # where these were never in the allowlist).
+  protobufjs: false
+  re2: false
+  sharp: false

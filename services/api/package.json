@@ -12,7 +12,7 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "check-types": "tsc --noEmit",
+    "check-types": "tsgo --noEmit",
     "test": "vitest",
     "build": "tsdown",
     "clean": "del-cli dist isolate",
@@ -46,7 +46,7 @@
     "@types/source-map-support": "^0.5.10",
     "del-cli": "^7.0.0",
     "tsdown": "^0.21.9",
-    "typescript": "^6.0.3",
+    "typescript": "6.0.3",
     "vitest": "^4.1.5"
   }
 }

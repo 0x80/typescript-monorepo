@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "check-types": "tsc --noEmit",
+    "check-types": "tsgo --noEmit",
     "dev": "next dev",
     "build": "next build",
     "clean": "del-cli .next",
@@ -23,7 +23,7 @@
     "react-dom": "^19.2.5",
     "tailwind-merge": "^3.5.0",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^6.0.3"
+    "typescript": "6.0.3"
   },
   "devDependencies": {
     "@codecompose/typescript-config": "^3.2.0",
